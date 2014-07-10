@@ -1,0 +1,2 @@
+client:chat_client.c chat.h
+	gcc -o client chat_client.c -lpthread

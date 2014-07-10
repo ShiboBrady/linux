@@ -1,0 +1,5 @@
+EXE := client
+SRC := my_client.c
+INC := download.h
+$(EXE):$(SRC) $(INC)
+	gcc -o $(EXE) $(SRC)

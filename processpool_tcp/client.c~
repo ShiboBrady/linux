@@ -1,0 +1,13 @@
+/*************************************************************************
+	> File Name: client.c
+	> Author: ZhangShibo
+	> Mail:453430198@qq.com 
+	> Created Time: Thu 03 Jul 2014 05:29:12 AM PDT
+ ************************************************************************/
+
+#include<stdio.h>
+
+int main(int argc, char *argv[])
+{
+	return 0;
+}

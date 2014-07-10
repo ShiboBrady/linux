@@ -1,0 +1,2 @@
+server:chat_server.c chat.h
+	gcc -o server chat_server.c

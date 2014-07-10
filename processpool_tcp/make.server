@@ -1,0 +1,2 @@
+server:server.c my_sorket.c makechild.c processpool.h msg.h
+	gcc -o server server.c my_sorket.c makechild.c

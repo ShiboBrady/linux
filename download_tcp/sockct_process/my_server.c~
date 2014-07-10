@@ -1,0 +1,30 @@
+/*************************************************************************
+	> File Name: my_server.c
+	> Author: ZhangShibo
+	> Mail:453430198@qq.com 
+	> Created Time: Mon 07 Jul 2014 05:02:46 PM PDT
+ ************************************************************************/
+
+#include "download.h"
+
+
+
+int main(int argc, char *argv[])
+{
+	if(argc != 3){
+		printf("EXE IP PORT\n");
+		exit(-1);
+	}
+
+	int fd_server, fd_client, addrlen, fd_read, total, read_n;
+	SA client_addr;
+	MSG msg;
+	fd_server = preprocess(argv[1], argv[2]);	
+	addrlen = sizeof(SA);
+
+	while(fd_client = accept(fd_server, (struct sortaddr*)&client_addr, &addrlen)){
+		
+	}
+	return 0;
+}
+

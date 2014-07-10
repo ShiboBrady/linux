@@ -1,0 +1,52 @@
+/*************************************************************************
+	> File Name: chat.h
+	> Author: ZhangShibo
+	> Mail:453430198@qq.com 
+	> Created Time: Fri 04 Jul 2014 01:50:31 AM PDT
+ ************************************************************************/
+
+#ifndef CHAT_H
+#define CHAT_H
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include <unistd.h>
+#include <sys/socket.h>
+#include <sys/types.h>
+#include <sys/time.h>
+#include <sys/select.h>
+#include <netinet/in.h>
+#include <arpa/inet.h>
+
+#define MSG_USR 1
+#define MSG_GRP 2
+#define MSG_ON 3
+#define MSG_OFF 4
+#define MSG_FLS 5
+#define MSG_SIZE 1024
+#define MSG_LEN (8192 - MSG_SIZE)
+typedef struct sockaddr_in SA;
+
+typedef struct tagmsg
+{
+	int type;
+	int len;
+	SA  addr;
+	char msg[MSG_SIZE];
+}MSG;
+
+typedef struct tagusr
+{
+	SA addr;
+	struct tagusr *next;
+}USR, *pUSR;
+
+typedef struct clientlist
+{
+	int num;
+	SA addr;
+	struct clientlist *next;
+}clientlist, *pclientlist;
+#endif
