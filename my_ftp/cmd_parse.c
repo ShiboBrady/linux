@@ -240,6 +240,7 @@ void my_download(int fd_client, char *str)
 {
 	int read_n, fd_read, total;
 	char send_str[MSG_LEN + 1];
+	MSG snd_msg;
 	printf("filename : %s\n", str);
 	fd_read = open(str, O_RDONLY);
 	if(fd_read < 0){
@@ -249,8 +250,9 @@ void my_download(int fd_client, char *str)
 	}
 	else{
 		total = 0;
-		while(bzero(send_str, MSG_LEN), (read_n = read(fd_read, send_str, MSG_LEN)) > 0){
-			send_msg(fd_client, send_str);
+		while(bzero(&snd_msg, sizeof(MSG)), (read_n = read(fd_read, snd_msg.content, MSG_LEN)) > 0){
+			snd_msg.len = read_n;
+			send(fd_client, &snd_msg, read_n + MSG_HEAD, 0);
 			total += read_n;
 			system("clear");
 			printf("send %.2f Kb\n", (double)total / 1024);

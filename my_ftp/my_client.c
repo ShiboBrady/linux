@@ -54,7 +54,7 @@ int main(int argc, char *argv[])
 					continue;
 				}
 				while(bzero(&sendMsg, MSG_SIZE), (read_n = read(fd_read, sendMsg.content, MSG_LEN)) > 0){
-					sendMsg.len = strlen(sendMsg.content);
+					sendMsg.len = read_n;
 					send(fd_server, &sendMsg, MSG_HEAD + sendMsg.len, 0);
 					total += read_n;
 					system("clear");
